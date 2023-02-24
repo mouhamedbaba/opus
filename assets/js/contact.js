@@ -51,10 +51,10 @@ form.addEventListener('submit', function (e) {
                         document.getElementById("TextareaAlert").innerHTML = ""
                         document.getElementById("NomAlert").innerHTML = ""
                         document.getElementById("TelephoneAlert").innerHTML = ""
-                        console.log("merci de nous avoir contacte M(me) " +  nomCompletSplit[1])
+                        console.log("merci de nous avoir contacte M(me) " + nomCompletSplit[1])
                         const data = new FormData(form);
 
-                        fetch('sendMail.php', {
+                        fetch('index.php', {
                             method: 'POST',
                             body: data
                         })

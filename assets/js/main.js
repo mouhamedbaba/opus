@@ -1,7 +1,7 @@
 const loader = document.getElementById("load");
 
-window.addEventListener('DOMContentLoaded', () => {
-  loader.classList.remove('spinner');
+window.addEventListener('load', () => {
+  loader.classList.add('d-none');
 })
 
 window.addEventListener("scroll", function () {
