@@ -1,22 +1,33 @@
 <?php
+
 try {
     $hostame = 'localhost';
-    $database = 'opus';
+    $database = 'lastdb';
     $username = 'root';
     $password = '';
     $db = new PDO("mysql:host=$hostame;dbname=$database", $username, $password);
 } catch (PDOException $e) {
     die('failed ' . $e);
-}
-
-if (isset($_POST['Nom']) && isset($_POST['Email'])) {
-    die('donnes : Email = ' . $_POST['Email'] . ' et Nom = ' . $_POST['Nom']);
-} else{
-    die('noting !');
+} 
+if (isset($_POST['nom']) && isset($_POST['email'])){
+    if(empty($_POST['nom']) || empty($_POST['email']))
+    {
+        die('Erreur ');
+    } else{
+        $sql = 'INSERT INTO tablelast(nom, email) VALUE (?,?)';
+        $resultat = $db ->prepare($sql);
+        $resultat->execute(array($_POST['nom'],$_POST['email']));
+        $nbIns =  $resultat->rowCount();
+        
+        if($nbIns > 0 ) {
+            echo "bravo";
+        } else {
+            echo "oups !";
+        }
+    }
 }
 // if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-//     // Récupération des données du formulaire
 //     $nom = $_POST['Nom'];
 //     $email = $_POST['Email'];
 //     $telephone = $_POST['Telephone'];
@@ -470,15 +481,15 @@ if (isset($_POST['Nom']) && isset($_POST['Email'])) {
                                 </div>
                                 <form id="myForm" method="POST" action="index.php" class="">
                                     <div class="mb-1">
-                                        <label for="Nom" class="form-label p-contact">Prenom & Nom</label>
-                                        <input type="texte" class="form-control" name="Nom" id="Nom" required>
+                                        <label for="nom" class="form-label p-contact">Prenom & Nom</label>
+                                        <input type="texte" class="form-control" name="nom" id="Nom" required>
                                         <div id="NomAlert" class="form-text"></div>
                                     </div>
                                     <div class="mb-1">
-                                        <label for="Email" class="form-label p-contact">Email</label>
-                                        <input type="email" class="form-control" name="Email" id="Email" required>
+                                        <label for="email" class="form-label p-contact">Email</label>
+                                        <input type="email" class="form-control" name="email" id="Email" required>
                                     </div>
-                                    <div class="mb-1">
+                                    <!-- <div class="mb-1">
                                         <label for="Telephone" class="form-label p-contact">Telephone</label>
                                         <input type="number" class="form-control" name="Telephone" id="Telephone" required>
                                         <div id="TelephoneAlert" class="form-text"></div>
@@ -491,12 +502,12 @@ if (isset($_POST['Nom']) && isset($_POST['Email'])) {
                                         <label for="Textarea" class="form-label p-contact">Message</label>
                                         <textarea class="form-control" name="Message" id="Textarea" required></textarea>
                                         <div id="TextareaAlert" class="form-text"></div>
-                                    </div>
+                                    </div> -->
                                     <div class=" d-flex justify-content-center">
                                         <div class=" align-items-bottom my-4">
                                             <input class="btn" type="submit" id="submit" value="Envoyer">
                                         </div>
-                                    </div>
+                                    </div> 
                                 </form>
                             </div>
                         </div>
@@ -544,7 +555,7 @@ if (isset($_POST['Nom']) && isset($_POST['Email'])) {
     <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe><iframe width="560" height="315" src="https://www.youtube.com/embed/SXhO9XFblfw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> -->
 
     <script src="assets/js/main.js"></script>
-    <script src="assets/js/contact.js"></script>
+    <script src="contact.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 </body>
