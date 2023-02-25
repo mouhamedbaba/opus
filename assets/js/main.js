@@ -1,8 +1,12 @@
 const loader = document.getElementById("load");
 
-window.addEventListener('load', () => {
-  loader.classList.add('d-none');
-})
+// window.addEventListener('Load', () => {
+//   loader.classList.remove('d-none');
+// })
+window.load = (event) => {
+  console.log("page is fully loaded");
+};
+
 
 window.addEventListener("scroll", function () {
   if (window.scrollY > 765) {
@@ -14,7 +18,6 @@ window.addEventListener("scroll", function () {
     document.getElementById("btn-scroll").classList.remove("d-none")
   } else {
     document.getElementById("btn-scroll").classList.add("d-none")
-
   }
 
 });
