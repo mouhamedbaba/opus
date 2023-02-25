@@ -54,7 +54,7 @@ form.addEventListener('submit', function (e) {
                         console.log("merci de nous avoir contacte M(me) " + nomCompletSplit[1])
                         const data = new FormData(form);
 
-                        fetch('assets/php/sendMail.php', {
+                        fetch('index.php', {
                             method: 'POST',
                             body: data
                         })

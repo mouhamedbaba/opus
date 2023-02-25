@@ -1,8 +1,8 @@
- <?php
+<?php
  if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  $nom = $_POST['Nom'];
-  $email = $_POST['Email'];
+  $nom = $_POST['nom'];
+  $email = $_POST['email'];
      $telephone = $_POST['Telephone'];
      $message = $_POST['Message'];
 
@@ -20,4 +20,3 @@
          echo "Une erreur s'est produite lors de l'envoi de votre message.";
      }
  }
- ?>
