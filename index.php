@@ -2,7 +2,7 @@
 
 try {
     $hostame = 'localhost';
-    $database = 'lastdb';
+    $database = 'opusbuyer';
     $username = 'root';
     $password = '';
     $db = new PDO("mysql:host=$hostame;dbname=$database", $username, $password);
@@ -14,16 +14,10 @@ if (isset($_POST['nom']) && isset($_POST['email'])){
     {
         die('Erreur ');
     } else{
-        $sql = 'INSERT INTO tablelast(nom, email) VALUE (?,?)';
+        $sql = 'INSERT INTO info_user(Nom, Email, Telephone, Societe) VALUE (?,?,?,?)';
         $resultat = $db ->prepare($sql);
-        $resultat->execute(array($_POST['nom'],$_POST['email']));
+        $resultat->execute(array($_POST['nom'],$_POST['email'],$_POST['Telephone'],$_POST['Societe']));
         $nbIns =  $resultat->rowCount();
-        
-        if($nbIns > 0 ) {
-            echo "bravo";
-        } else {
-            echo "oups !";
-        }
     }
 }
 // if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -489,7 +483,7 @@ if (isset($_POST['nom']) && isset($_POST['email'])){
                                         <label for="email" class="form-label p-contact">Email</label>
                                         <input type="email" class="form-control" name="email" id="Email" required>
                                     </div>
-                                    <!-- <div class="mb-1">
+                                    <div class="mb-1">
                                         <label for="Telephone" class="form-label p-contact">Telephone</label>
                                         <input type="number" class="form-control" name="Telephone" id="Telephone" required>
                                         <div id="TelephoneAlert" class="form-text"></div>
@@ -502,7 +496,7 @@ if (isset($_POST['nom']) && isset($_POST['email'])){
                                         <label for="Textarea" class="form-label p-contact">Message</label>
                                         <textarea class="form-control" name="Message" id="Textarea" required></textarea>
                                         <div id="TextareaAlert" class="form-text"></div>
-                                    </div> -->
+                                    </div>
                                     <div class=" d-flex justify-content-center">
                                         <div class=" align-items-bottom my-4">
                                             <input class="btn" type="submit" id="submit" value="Envoyer">
