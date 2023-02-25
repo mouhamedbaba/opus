@@ -8,14 +8,15 @@ try {
     $db = new PDO("mysql:host=$hostame;dbname=$database", $username, $password);
 } catch (PDOException $e) {
     die('failed ' . $e);
-}
-if (isset($_POST['nom']) && isset($_POST['email'])) {
-    if (empty($_POST['nom']) || empty($_POST['email'])) {
+} 
+if (isset($_POST['Nom']) && isset($_POST['Email'])){
+    if(empty($_POST['Nom']) || empty($_POST['Email']))
+    {
         die('Erreur ');
-    } else {
+    } else{
         $sql = 'INSERT INTO info_user(Nom, Email, Telephone, Societe) VALUE (?,?,?,?)';
-        $resultat = $db->prepare($sql);
-        $resultat->execute(array($_POST['nom'], $_POST['email'], $_POST['Telephone'], $_POST['Societe']));
+        $resultat = $db ->prepare($sql);
+        $resultat->execute(array($_POST['Nom'],$_POST['Nmail'],$_POST['Telephone'],$_POST['Societe']));
         $nbIns =  $resultat->rowCount();
     }
 }

@@ -435,12 +435,12 @@ require_once('assets\php\sendMail.php')
                                 <form id="myForm" method="POST" action="index.php" class="">
                                     <div class="mb-1">
                                         <label for="nom" class="form-label p-contact">Prenom & Nom</label>
-                                        <input type="texte" class="form-control" name="nom" id="Nom" required>
+                                        <input type="texte" class="form-control" name="Nom" id="Nom" required>
                                         <div id="NomAlert" class="form-text"></div>
                                     </div>
                                     <div class="mb-1">
                                         <label for="email" class="form-label p-contact">Email</label>
-                                        <input type="email" class="form-control" name="email" id="Email" required>
+                                        <input type="email" class="form-control" name="Email" id="Email" required>
                                     </div>
                                     <div class="mb-1">
                                         <label for="Telephone" class="form-label p-contact">Telephone</label>
