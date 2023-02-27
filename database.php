@@ -4,7 +4,7 @@ try {
     $hostame = 'localhost';
     $database = 'opusbuyerdb';
     $username = 'root';
-    $password = '';
+    $password = 'lamottely2004';
     $db = new PDO("mysql:host=$hostame;dbname=$database", $username, $password);
 } catch (PDOException $e) {
     die('failed ' . $e);

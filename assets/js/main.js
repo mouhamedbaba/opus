@@ -1,11 +1,9 @@
 const loader = document.getElementById("load");
 
-// window.addEventListener('Load', () => {
-//   loader.classList.remove('d-none');
-// })
-window.load = (event) => {
-  console.log("page is fully loaded");
-};
+window.addEventListener('Load', () => {
+  loader.classList.remove('d-none');
+});
+
 
 
 window.addEventListener("scroll", function () {
@@ -37,3 +35,5 @@ function typeText() {
 }
 
 typeText();
+
+
