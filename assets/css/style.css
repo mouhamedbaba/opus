@@ -215,9 +215,11 @@ img {
   width: 80px;
   height: 80px;
 }
+
 .actus {
-/*  */
+  /*  */
 }
+
 .icons-contact {
   height: 40px;
   width: 40px;
@@ -369,12 +371,23 @@ footer {
 .titre-actulite-container {
   background: #00214D;
 }
+
 details summary::-webkit-details-marker {
-  display:none;
+  display: none;
 }
-a{
+
+a {
   text-decoration: none;
 }
-.demo_wrap{
-  filter: contrast(10px);
+
+.demo_wrap {
+  position: absolute;
+  background-color: #00214D;
+  height: 100%;
+  width: 100%;
+  opacity: 25%;
+}
+
+.demo_wrap:hover {
+  opacity: 0%;
 }

@@ -383,44 +383,50 @@
                         </div>
                     </div>
                 </div>
-                <div class="  my-5 ">
+                <div class="my-5">
                     <div class="py-4 px-3" style="
                     background: #D9D9D9;
                     border-left: 15px solid #00214D;">
                         <h3 class="fw-bolder" style="color: #00214D;">OPUS GALERIE</h3>
                     </div>
-                    <div class="container-fluid my-1">
+                    <div class="container-fluid my-5">
                     <div class="row">
                         <div class="col-md-4 mb-3">
                             <div class="card ">
-                                <img class=" demo_wrap" alt="100%x280" src="assets/img/BANNER.jpg">
+                                <img class="" alt="100%x280" src="assets/img/BANNER.jpg">
+                                <div class="demo_wrap"></div>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="card">
                                 <img class="" alt="100%x280" src="assets/img/BANNER.jpg">
+                                <div class="demo_wrap"></div>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="card">
                                 <img class="" alt="100%x280" src="assets/img/BANNER.jpg">
+                                <div class="demo_wrap"></div>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4 mb-3">
-                            <div class="card ">
-                                <img class=" demo_wrap" alt="100%x280" src="assets/img/BANNER.jpg">
+                            <div class="card">
+                                <img class=" " alt="100%x280" src="assets/img/BANNER.jpg">
+                                <div class="demo_wrap"></div>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="card">
                                 <img class="" alt="100%x280" src="assets/img/BANNER.jpg">
+                                <div class="demo_wrap"></div>
                             </div>
                         </div>
                         <div class="col-md-4 mb-3">
                             <div class="card">
                                 <img class="" alt="100%x280" src="assets/img/BANNER.jpg">
+                                <div class="demo_wrap"></div>
                             </div>
                         </div>
                     </div>
