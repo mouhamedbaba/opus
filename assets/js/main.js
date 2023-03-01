@@ -1,7 +1,7 @@
 const loader = document.getElementById("load");
 
 window.addEventListener('Load', () => {
-  loader.classList.remove('d-none');
+  loader.classList.add('d-none');
 });
 
 
