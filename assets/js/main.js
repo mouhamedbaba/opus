@@ -29,12 +29,21 @@ function typeText() {
     index++;
     setTimeout(typeText, 3000);
   } else {
-    index = 0;
+    index = 0; 
     setTimeout(typeText, 3000);
   }
 }
-
 typeText();
 
 
-const more_less = document.getElementById("see_more_less")
+const more = document.getElementById("more")
+const less = document.getElementById("less")
+
+more.addEventListener('click', function(){
+  more.classList.add('d-none')
+  less.classList.remove('d-none')
+})
+less.addEventListener('click', function(){
+  less.classList.add('d-none')
+  more.classList.remove('d-none')
+})
