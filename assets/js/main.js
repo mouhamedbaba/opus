@@ -6,19 +6,19 @@ window.addEventListener('Load', () => {
 
 
 
-window.addEventListener("scroll", function () {
-  if (window.scrollY > 765) {
-    document.querySelector("#bg-defined").style.backgroundColor = "#00214D";
-  } else {
-    document.querySelector("#bg-defined").style.backgroundColor = "rgba(0, 11, 26, 0.5)";
-  }
-  if (window.scrollY > 900) {
-    document.getElementById("btn-scroll").classList.remove("d-none")
-  } else {
-    document.getElementById("btn-scroll").classList.add("d-none")
-  }
+// window.addEventListener("scroll", function () {
+//   if (window.scrollY > 765) {
+//     document.querySelector("#bg-defined").style.backgroundColor = "#00214D";
+//   } else {
+//     document.querySelector("#bg-defined").style.backgroundColor = "rgba(0, 11, 26, 0.5)";
+//   }
+//   if (window.scrollY > 900) {
+//     document.getElementById("btn-scroll").classList.remove("d-none")
+//   } else {
+//     document.getElementById("btn-scroll").classList.add("d-none")
+//   }
 
-});
+// });
 
 let texts = ["Un gain de temps significatif", "Des coûts réduits", "Une flexibilité incomparable", "Une meilleure qualité"];
 let index = 0;
@@ -37,3 +37,4 @@ function typeText() {
 typeText();
 
 
+const more_less = document.getElementById("see_more_less")
